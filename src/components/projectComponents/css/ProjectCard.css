@@ -1,0 +1,13 @@
+.cancel-button {
+  background-color: #ffeaea;
+  border-color: #ff4d4f;
+  color: #ff4d4f;
+
+  text-align: center;
+}
+
+/* hover effect */
+.cancel-button:hover {
+  background-color: #ffcccc; /* สีแดงเข้มขึ้น */
+  color: #a8071a;            /* สีตัวอักษรเข้มขึ้น */
+}
