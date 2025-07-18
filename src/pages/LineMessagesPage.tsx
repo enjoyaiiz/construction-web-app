@@ -200,7 +200,7 @@ const LineMessagePage: React.FC = () => {
                       <LineMessageContent
                         messageType={msg.messageType}
                         text={msg.text}
-                        sourceFile={msg.sourceFile}
+                        fileUrl={msg.sourceFile}
                       />
                       <div
                         style={{
