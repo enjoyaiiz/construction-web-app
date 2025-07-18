@@ -4,16 +4,17 @@ import { FileOutlined } from "@ant-design/icons";
 
 interface Props {
   messageType: string;
-  sourceFile?: string;
+  fileUrl?: string;      // <== เปลี่ยนจาก sourceFile เป็น fileUrl
   text?: string;
 }
 
-const LineMessageContent: React.FC<Props> = ({ messageType, sourceFile, text }) => {
-  if (messageType === "image" && sourceFile) {
+const LineMessageContent: React.FC<Props> = ({ messageType, fileUrl, text }) => {
+  // แสดงรูป (เช่น LINE image)
+  if (messageType === "image" && fileUrl) {
     return (
       <img
-        src={`${process.env.REACT_APP_API_BASE_URL}/api/files/images/${sourceFile}`}
-        alt="รูปจากลูกค้า"
+        src={fileUrl}
+        alt="แนบไฟล์"
         style={{
           maxWidth: "100%",
           height: "auto",
@@ -25,10 +26,11 @@ const LineMessageContent: React.FC<Props> = ({ messageType, sourceFile, text }) 
     );
   }
 
-  if (messageType === "file" && sourceFile) {
+  // แสดงลิงก์ดาวน์โหลดไฟล์ (LINE file)
+  if (messageType === "file" && fileUrl) {
     return (
       <a
-        href={`${process.env.REACT_APP_API_BASE_URL}/api/files/files/${sourceFile}`}
+        href={fileUrl}
         target="_blank"
         rel="noopener noreferrer"
         style={{ textDecoration: "none" }}
@@ -37,8 +39,8 @@ const LineMessageContent: React.FC<Props> = ({ messageType, sourceFile, text }) 
           size="small"
           hoverable
           bodyStyle={{
-            display: "flex",          // ✅ flex container
-            alignItems: "center",     // ✅ vertical align
+            display: "flex",
+            alignItems: "center",
             padding: "8px 12px",
           }}
           style={{
@@ -60,13 +62,14 @@ const LineMessageContent: React.FC<Props> = ({ messageType, sourceFile, text }) 
               flex: 1,
             }}
           >
-            {sourceFile}
+            ดาวน์โหลดไฟล์
           </span>
         </Card>
       </a>
     );
   }
 
+  // ข้อความปกติ
   return <div>{text}</div>;
 };
 
