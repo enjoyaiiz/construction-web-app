@@ -16,6 +16,7 @@ interface LineMessage {
     isRead: boolean;
     messageType: string;      // ✅ เพิ่ม
     sourceFile?: string;      // ✅ เพิ่ม
+    fileUrl?: string; // ✅ เพิ่ม
   }[];
 }
 
@@ -200,7 +201,7 @@ const LineMessagePage: React.FC = () => {
                       <LineMessageContent
                         messageType={msg.messageType}
                         text={msg.text}
-                        fileUrl={msg.sourceFile}
+                        fileUrl={msg.fileUrl}
                       />
                       <div
                         style={{
