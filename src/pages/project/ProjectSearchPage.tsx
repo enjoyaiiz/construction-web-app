@@ -106,7 +106,7 @@ const ProjectSearchPage: React.FC = () => {
                 phone={project.ownerPhone || '-'}
                 lineId={project.ownerLineId || '-'}
                 status={project.status || 'open'}
-                onClick={() => navigate(`/project/${project.id}`)}
+                onClick={() => navigate('/project/detail', { state: { id: project.id } })}
                 onCancel={async () => {
                   try {
                     const res = await fetch(`${API_BASE_URL}/api/projects/${project.id}`, {

@@ -10,6 +10,7 @@ import ProjectSearchPage from './pages/project/ProjectSearchPage';
 import ProjectDashboard from './pages/project/ProjectDashboard';
 import ProjectDetailPage from './pages/project/ProjectDetailPage';
 import LineMessagesPage from './pages/LineMessagesPage';
+import TestPage from './pages/Test';
 const { Content } = Layout;
 
 const App: React.FC = () => {
@@ -27,10 +28,11 @@ const App: React.FC = () => {
               {/* project */}
               <Route path="/project/search" element={<ProjectSearchPage />} />
               <Route path="/project/add" element={<ProjectFormPage />} />
-              <Route path="/project/:id" element={<ProjectDetailPage />} />
+              <Route path="/project/detail" element={<ProjectDetailPage />} />
               {/* Line */}
               <Route path="/line-messages" element={<LineMessagesPage />} />
               {/* เพิ่มหน้าอื่นได้ตามต้องการ */}
+              <Route path="/test-page" element={<TestPage />} />
             </Routes>
           </Content>
         </Layout>
